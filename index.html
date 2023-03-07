@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/meta-favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <title>dsa-public-frame</title> -->
+  <!-- 这里引入配置文件的地方不可以使用 type="module" 否则会出现路径问题 -->
+  <!-- <script src="./config.js"></script> -->
+  <title><%- title %></title>
+  <%- injectScript %>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- <script type="module" src="/package/meta/main.ts"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+@use './common/common.scss';
+@use './common/element.scss';
+
+@import './mixins.scss';
+
+// 始终同时只导入一份 scss 主题文件；避免冲突
+@import './default.theme/css-vars.scss';
+@import './dark.theme/css-vars.scss';
+@import './science.theme/css-vars.scss';
+@import './navy.theme/css-vars.scss';
+
+@import '../assets/font/font.css';
+@import '/@/admin/styles/index.scss';
+@import '/@/service/styles/index.scss';
+

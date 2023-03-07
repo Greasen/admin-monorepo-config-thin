@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use '../function.scss' as *;
+$types: primary, success, warning, danger, error, info;
+
+$white: #ffffff;
+$black: #000000;
+$default-color: #008c74;
+$default-success-color: #67c23a;
+$default-warning-color: #e6a23c;
+$default-danger-color: #ff0000;
+$default-error-color: #f56c6c;
+$default-info-color: #909399;
+
+$colors: ();
+$colors: map.deep-merge(
+  (
+    'white': $white,
+    'black': $black,
+    'primary': (
+      'base': $default-color,
+    ),
+    'success': (
+      'base': $default-success-color,
+    ),
+    'warning': (
+      'base': $default-warning-color,
+    ),
+    'danger': (
+      'base': $default-danger-color,
+    ),
+    'error': (
+      'base': $default-error-color,
+    ),
+    'info': (
+      'base': $default-info-color,
+    ),
+  ),
+  $colors
+);
+
+html.defaultTheme {
+  @include set-css-var-value(('menu', 'text', 'color'), #fff);
+  @include set-css-var-value(('menu', 'active', 'color'), #e0a840);
+  @include set-css-var-value(('menu', 'hover', 'bg', 'color'), var(--el-color-primary-dark-2));
+  @include set-css-var-value(('menu', 'hover', 'text', 'color'), var(--el-color-primary-light-5));
+  @include set-css-var-value(('menu', 'bg', 'color'), $default-color);
+  @include set-css-var-value(('body', 'background', 'color'), #f2f5f8);
+  @include set-css-var-value(('layout', 'background', 'color'), #fff);
+  @include set-css-var-value(('pane', 'background', 'color'), #fff);
+  @include set-css-var-value(('text', 'color'), var(--el-text-color-primary));
+  @include set-css-var-value(('color', 'primary'), $default-color);
+
+  // 这里是循环替换 $types 类型中的所有颜色，根据 mix 函数循环
+  @each $type in $types {
+    @for $i from 1 through 9 {
+      @include set-color-mix-value('color', $type, $i, $colors, 'light', #fff);
+    }
+  }
+  @each $type in $types {
+    @for $i from 1 through 9 {
+      @include set-color-mix-value('color', $type, $i, $colors, 'dark', #000);
+    }
+  }
+  
+}

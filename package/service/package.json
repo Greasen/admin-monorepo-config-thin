@@ -1,0 +1,8 @@
+{
+  "name": "@dsa-public/service",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@qif/qt-video": "^1.1.10"
+  }
+}

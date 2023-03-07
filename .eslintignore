@@ -1,0 +1,13 @@
+
+node_modules
+*.md
+*.woff
+*.ttf
+dist
+/public
+.vscode
+*.json
+*.yaml
+stylelint.config.js
+prettier.config.js
+internal/eslint-config/

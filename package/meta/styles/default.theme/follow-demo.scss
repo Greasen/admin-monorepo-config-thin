@@ -1,0 +1,13 @@
+/*
+  组件库主题扩展后，将会使用这一套方案来切换主题
+*/
+
+@forward '@qif/element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': green,
+    ),
+  ),
+);
+
+@use "@qif/element-plus/theme-chalk/src/index.scss" as *;

@@ -1,0 +1,5 @@
+// 这里是由于组件库中有一部分样式是写死的，所以在变量中无法动态修改，这边把写死的改成动态取值
+.el-tabs--left.el-tabs--border-card .el-tabs__item.is-left.is-active {
+  border-top-color: var(--el-border-color);
+  border-bottom-color: var(--el-border-color);
+}

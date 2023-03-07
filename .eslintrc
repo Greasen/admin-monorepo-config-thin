@@ -1,0 +1,6 @@
+{
+  "root": true,
+  "extends": [
+    "@dsa-public/eslint-config"
+  ]
+}

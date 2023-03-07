@@ -1,0 +1,94 @@
+@use 'sass:map';
+@use '../function.scss' as *;
+@use './var' as *;
+$types: primary, success, warning, danger, error, info;
+
+$white: #ffffff;
+$black: #000000;
+$default-color: #008cff;
+$default-success-color: #67c23a;
+$default-warning-color: #e6a23c;
+$default-danger-color: #f56c6c;
+$default-error-color: #f56c6c;
+$default-info-color: #909399;
+
+$colors: (
+);
+$colors: map.deep-merge(('white': $white,
+      'black': $black,
+      'primary': ('base': $default-color,
+      ),
+      'success': ('base': $default-success-color,
+      ),
+      'warning': ('base': $default-warning-color,
+      ),
+      'danger': ('base': $default-danger-color,
+      ),
+      'error': ('base': $default-error-color,
+      ),
+      'info': ('base': $default-info-color,
+      ),
+    ),
+    $colors);
+
+html.navyTheme {
+  @include set-css-var-value(('menu', 'text', 'color'), $white);
+  @include set-css-var-value(('menu', 'active', 'color'), #e0a840);
+  @include set-css-var-value(('menu', 'hover', 'bg', 'color'), var(--el-color-primary-dark-4));
+  @include set-css-var-value(('menu', 'hover', 'text', 'color'), var(--el-color-primary-light-1));
+  @include set-css-var-value(('menu', 'bg', 'color'), transparent);
+  @include set-css-var-value(('body', 'background', 'color'), var(--el-color-primary-dark-8));
+  @include set-css-var-value(('layout', 'background', 'color'), var(--el-fill-color));
+  @include set-css-var-value(('pane', 'background', 'color'), var(--el-fill-color-half));
+  @include set-css-var-value(('color', 'primary'), $default-color);
+
+  // 背景色，核心色  --el-bg-color-#{$type}
+  @include set-component-css-var('bg-color', $bg-color);
+  // 字体色 --el-text-color-#{$type}
+  @include set-component-css-var('text-color', $text-color);
+  // 边框色 --el-border-color-#{$type}
+  @include set-component-css-var('border-color', $border-color);
+  // 组件填充色 Fill --el-fill-color-#{$type}
+  @include set-component-css-var('fill-color', $fill-color);
+  // 掩藏色 --el-mask-color-#{$type}
+  @include set-component-css-var('mask-color', $mask-color);
+
+  // 这里是循环替换 $types 类型中的所有颜色，根据 mix 函数循环
+  @each $type in $types {
+    @for $i from 1 through 9 {
+      @include set-color-mix-value('color', $type, $i, $colors, 'light', #fff);
+    }
+  }
+
+  @each $type in $types {
+    @for $i from 1 through 9 {
+      @include set-color-mix-value('color', $type, $i, $colors, 'dark', #000);
+    }
+  }
+
+  .layout {
+    // background: url("/package/meta/assets/img/common/bg2.png") no-repeat;
+    // background-size: 100% 100vh;
+  }
+
+  // .layout-header {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+  //   width: 100%;
+  //   height: 82px;
+  //   background-color: transparent !important;
+  //   background-image: url("/package/meta/assets/img/menu/top.png");
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   border: none !important;
+  // }
+
+  .app-menu {
+    height: 85%;
+  }
+
+  .el-table__body-wrapper tr td.el-table-fixed-column--right {
+    background: transparent;
+  }
+}

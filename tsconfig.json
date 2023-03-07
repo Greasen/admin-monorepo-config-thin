@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "useDefineForClassFields": true,
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": [
+      "node",
+      "unplugin-vue-define-options",
+      "vite/client",
+      "element-plus/global",
+      "@qif/element-plus/global"
+    ],
+    "typeRoots": [
+      "./node_modules/@types/",
+      "src/types"
+    ],
+    "allowJs": true,
+    "sourceMap": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "/#/*": [
+        "package/meta/types/*"
+      ],
+      "~/*": [
+        "package/meta/*"
+      ],
+      "/@/*": [
+        "package/*"
+      ],
+      "$/*": [
+        "package/service/*"
+      ],
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "package/**/*.ts",
+    "package/**/*.scss",
+    "package/**/*.module.scss",
+    "package/**/*.d.ts",
+    "package/**/*.tsx",
+    "package/**/*.vue",
+    "typings/*.d.ts",
+    "vite.config.ts"
+  ],
+}

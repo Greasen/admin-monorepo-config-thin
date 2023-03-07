@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@use '../function.scss' as *;
+@use '/@/service/styles/variables.scss';
+
+$meta-side-width: 320px;
+$meta-gap-size: 14px;
+$meta-global-gap: 14px;
+$meta-font-size: 14px;
