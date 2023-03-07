@@ -1,6 +1,6 @@
 # vue3 公共框架
 
-一个vue3 的中后台的各业务模块解耦的架构
+一个vue3 的中后台的各业务模块系统解耦的 `monorepo` 架构，是 `admin-monorepo-thin` 的配置端。
 
 feat：
 1、多工作空间
@@ -26,6 +26,7 @@ feat：
 │   │   ├── views # 子空间的业务文件夹
 │   │   ├── index.vue # 子空间的入口文件（这里会挂在子空间路由）
 │   │   └── package.json # 子空间的依赖索引（这里的依赖只单针对该工作空间）
+│   ├── audit # 业务 -> 审计业务
 │   │   ├── ##
 │   │   └── package.json # 子空间的依赖索引（这里的依赖只单针对该工作空间）
 └── └──  public # 项目的全局实例（在这里new 各种全局使用，例：new router() new Store()，项目入口文件，vue 实例挂载，全局公共使用的样式引入文件，登录模块，布局模块，配置文件，公共类型····）
@@ -133,15 +134,15 @@ html.theme {
 ✅ - 假设我们的系统为A，其他系统为B，支持通过iframe的形式将B嵌入A中 [支持内嵌，但是需要单独的业务模块自定义开发；不在meta基站中去做]
 ✅ - 假设我们的系统为A，其他系统为B，支持通过iframe的形式将A嵌入B中，并支持：
     - 通过配置token跳过登录
-        - 示例：http://172.26.1.242:12000/patrol-station/index.html?token=xxx
+        - 示例：http://127.0.0.1:12000/index.html?token=xxx
     - 通过配置账号和加密后的密码跳过登录，param1为账号，param2为密码
-        - 示例：http://172.26.1.242:12000/patrol-station/index.html?param1=test&param2=64VAZI9wyp80QZY6+qyKTw==
+        - 示例：http://127.0.0.1:12000/index.html?param1=test&param2=64VAZI9wyp80QZY6+qyKTw==
     - 可配置是否展示菜单和显示的主题色
-        - 示例：http://172.26.1.242:12000/patrol-station/index.html?theme=xxx&showMenu=false
+        - 示例：http://127.0.0.1:12000/index.html?theme=xxx&showMenu=false
     - 如果不展示菜单应支持配置展示到某页面
-        - 示例：http://172.26.1.242:12000/patrol-station/index.html?showMenu=false&pageName=xxx
+        - 示例：http://127.0.0.1:12000/index.html?showMenu=false&pageName=xxx
 
-❌ - 文档系统
+✅ - 文档系统
 
 ## 修复 list
 
